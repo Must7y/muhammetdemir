@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://must7y.github.io/muhammetdemir/sitemap.xml
