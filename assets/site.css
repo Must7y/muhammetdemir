@@ -70,3 +70,8 @@
 .brand:hover .brand-symbol{border-color:#89e4dc;background:rgba(40,96,104,.45)}
 .mast .nav{gap:clamp(16px,2.4vw,30px);font-size:13px}
 @media(max-width:480px){.mast{gap:12px}.brand{gap:8px}.brand-symbol{min-width:43px;height:42px;font-size:16px}.brand-caption{display:none}.mast .nav{gap:12px}}
+
+/* Navigation without a logo or brand label */
+.mast{justify-content:flex-end;min-height:65px;padding:15px 0}
+.mast .nav{margin-left:auto;justify-content:flex-end}
+@media(max-width:480px){.mast{min-height:60px;padding:12px 0}.mast .nav{gap:14px}}
