@@ -52,3 +52,11 @@
 .hero-editorial .hero-name{font:750 clamp(28px,3.8vw,47px)/1.19 'Manrope',Arial,sans-serif;letter-spacing:-.045em;color:#f5f9ff;margin:0 0 27px;max-width:100%;text-wrap:balance}
 .hero-editorial .hero-body{font:400 clamp(15px,1.45vw,17px)/1.85 'DM Sans',Arial,sans-serif;color:#c2d2e1;max-width:710px;margin:0 0 16px}
 @media(max-width:420px){.hero-editorial h1{margin-bottom:12px}.hero-editorial .hero-name{font-size:clamp(27px,7.7vw,35px);margin-bottom:22px}.hero-editorial .hero-body{font-size:14px;line-height:1.75}}
+
+/* Greeting + primary name heading + unheaded body text */
+.hero-editorial .hero-greeting{font:600 clamp(17px,1.8vw,21px)/1.45 'DM Sans',Arial,sans-serif;letter-spacing:0;color:#a6dfdc;margin:24px 0 6px}
+.hero-editorial h1.hero-name{font:800 clamp(38px,5.3vw,70px)/1.13 'Manrope',Arial,sans-serif;letter-spacing:-.055em;color:#f7faff;margin:0 0 27px;max-width:100%;white-space:normal;overflow-wrap:normal;word-break:normal;text-wrap:balance}
+.hero-editorial .hero-body,.hero-editorial .hero-description{font:400 clamp(15px,1.45vw,17px)/1.85 'DM Sans',Arial,sans-serif;color:#c2d2e1;max-width:710px}
+.hero-editorial .hero-body{margin:0 0 17px}
+.hero-editorial .hero-description{margin:0}
+@media(max-width:420px){.hero-editorial .hero-greeting{font-size:17px;margin-top:17px}.hero-editorial h1.hero-name{font-size:clamp(34px,9vw,42px);margin-bottom:22px}.hero-editorial .hero-body,.hero-editorial .hero-description{font-size:14px;line-height:1.75}}
