@@ -63,3 +63,10 @@
 - **Formspree Restrict to Domain:** Kullanıcı 6 Kasım 2026 tarihinde proje alan adı kısıtlamasını kaydettiğini bildirdi. Hedef: `must7y.github.io`. Yönetim paneli üzerinden bağımsız yeniden okuma yapılmadı. Formun gerçek gönderim testi henüz bekliyor.
 
 - **Gerçek teslim testi (6 Kasım 2026):** Kullanıcı siteden gönderdiği test mesajının hedef e-posta kutusuna ulaştığını doğruladı. Bu, ileti teslimatının çalıştığını gösterir; KVKK aktarım mekanizmasının veya her tarayıcıda erişimin hukuken/teknik olarak bütünüyle doğrulandığı anlamına gelmez.
+
+## Çerez denetimi — 6 Kasım 2026
+- Güncel Türkçe/İngilizce sayfalarda ve `assets/site.js` içinde `document.cookie`, `localStorage.setItem`, `sessionStorage.setItem`, harici analitik/pazarlama SDK'sı veya Google reCAPTCHA script'i bulunmadı. Üçüncü taraf Google Fonts yüklemesi de yok.
+- Form sadece kullanıcı gönderdiğinde Formspree alan adına POST yapıyor. Formspree CAPTCHA doğrulamasını kendi sayfasında gösterebilir; Google reCAPTCHA bu süreçte çerez/cihaz bilgisi işleyebilir. Türkçe/İngilizce gizlilik metinleri bunu açıklar.
+- Mevcut sitenin kendi kodunda zorunlu olmayan çerez tespit edilmediği için otomatik çerez onay bannerı eklenmedi. Yalnız metin değil, gerçekten kontrol gerekliliği nedeniyle gelecekte izleme/çerez eklenirse önce rıza yönetimi ve kayıt sistemi kurulmalıdır.
+- Canlı tarayıcı ağ ve çerez depolama paneli denetlenemedi; GitHub Pages/Formspree/Google tarafının gerçek set-cookie davranışı bağımsız teyit edilmiş değildir. Zorunlu olmayan çerezlerin ortaya çıkması halinde bu sonuç yeniden değerlendirilecektir.
+- Kaynak: https://www.kvkk.gov.tr/Icerik/7595/2022-1358 ; https://help.formspree.io/articles/form-and-project-settings/recaptcha-settings
