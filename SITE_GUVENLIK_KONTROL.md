@@ -51,3 +51,10 @@
 - https://help.formspree.io/articles/form-and-project-settings/recaptcha-settings/
 - https://www.kvkk.gov.tr/Icerik/2053/Yurtdisina-Aktarim
 - https://www.kvkk.gov.tr/Icerik/6938/Kurumumuza-Yapilan-Sikayetlerin-Usul-Sartlarina-Iliskin-Kamuoyu-Duyurusu
+
+## Bekleyen tasarım işi — iletişim formu tamamlandıktan sonra
+- Kullanıcı havacılık temasını hafifçe artırmak istiyor.
+- Sağ taraftaki mevcut sayfa sonuna inme oku, siteye uygun zarif bir uçak simgesine dönüştürülecek.
+- Üzerine gelince küçük bir uçuş/kanat hareketi olacak; tıklanınca uçak aşağı süzülürken sayfa en alta kayacak.
+- Mobil dokunma, klavye erişilebilirliği ve `prefers-reduced-motion` gözetilecek.
+- **Henüz uygulanmadı. Önce iletişim formunun güvenlik ve teslimat ayarları tamamlanacak.**
