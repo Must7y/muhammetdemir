@@ -58,3 +58,6 @@
 - Üzerine gelince küçük bir uçuş/kanat hareketi olacak; tıklanınca uçak aşağı süzülürken sayfa en alta kayacak.
 - Mobil dokunma, klavye erişilebilirliği ve `prefers-reduced-motion` gözetilecek.
 - **Henüz uygulanmadı. Önce iletişim formunun güvenlik ve teslimat ayarları tamamlanacak.**
+
+
+- **Formspree Restrict to Domain:** Kullanıcı 6 Kasım 2026 tarihinde proje alan adı kısıtlamasını kaydettiğini bildirdi. Hedef: `must7y.github.io`. Yönetim paneli üzerinden bağımsız yeniden okuma yapılmadı. Formun gerçek gönderim testi henüz bekliyor.
