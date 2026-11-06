@@ -1,41 +1,37 @@
-# Kişisel site: güvenlik ve veri koruma kontrol kaydı
+# Kişisel Site — KVKK ve Güvenlik Denetimi
 
-Son kontrol: 2026-11-06
-Kapsam: `must7y.github.io/muhammetdemir/` adresindeki **kişisel tanıtım sitesi**. Mobil uygulamaları veya diğer web sitelerini kapsamaz.
+Denetim: 6 Kasım 2026
+Kapsam: Must7y/muhammetdemir deposundaki Türkçe/İngilizce statik kişisel site.
+Yöntem: Güncel GitHub HTML/CSS/JS kaynakları, resmi KVKK kaynakları ve Formspree belgeleri. Canlı siteye HTTP erişimi sağlanamadı; tarayıcı/network ve gerçek form teslim testi yapılmadı. Bu bir hukuki uygunluk sertifikası değildir.
 
-## Mevcut yaklaşım
-- GitHub Pages üzerinde statik HTML/CSS/JS; giriş hesabı, ödeme, veritabanı, çalışır iletişim formu ve kullanıcı yüklemesi yok.
-- Ziyaretçi analitiği, reklam pikseli, pazarlama çerezi, yerel depolama ve üçüncü taraf web fontu kullanılmıyor.
-- İletişim bölümü, alanları ve gönderim düğmesi devre dışı olan bir form taslağıdır; henüz herhangi bir ileti gönderilmez.
-- E-posta adresi mevcut HTML/JS/CSS kaynaklarından kaldırıldı. Ancak daha önce yayımlanan içerikler, Git geçmişi ve arama önbellekleri adresi hâlâ içerebilir; bu nedenle mutlak gizlilik veya spam koruması vaat edilmez.
-- Kişisel veri toplayacak form hizmeti bağlanmadan ve hukuki kontroller yapılmadan gönderim açılmamalı.
-- Statik sayfalarda CSP meta etiketi ile kaynaklar kısıtlanıyor. GitHub Pages özel HTTP güvenlik başlıkları sunmadığından bunun sınırlamaları vardır.
-- Türkçe ve İngilizce gizlilik/çerez bilgilendirmesi bulunuyor. Google doğrulama HTML dosyası korunuyor.
+## Doğrulanan teknik durum
+- Türkçe ve İngilizce ana sayfalarda iletişim formu mevcut: https://formspree.io/f/mljjvkgq (POST). Alanlar name, email, message; maxlength/required kontrolleri var.
+- Form altındaki uzun metin kaldırıldı, sadece gizlilik bildirimi bağlantısı var.
+- E-posta adresi mevcut HTML/CSS/JS içinde bulunmuyor. Ancak Git geçmişi veya arama önbelleği eski sürümdeki adresi barındırabilir.
+- Kendi site kaynak kodunda reklam/analitik etiketi, çerez yazımı ve localStorage kullanımı saptanmadı. Bu, barındırma sağlayıcısının veya Formspree'nin kendi işlemelerini dışlamaz.
+- Google Fonts dış yüklemesi kaldırıldı.
+- CSP meta etiketi var; form-action yalnız https://formspree.io alan adına izin veriyor. CSP'nin HTTP yanıt başlığı olarak sunulması ve frame-ancestors gibi başlıklar GitHub Pages'te bu repo içinden kontrol edilemiyor.
+- Honeypot _gotcha alanı var; Formspree tarafından desteklendiği resmi belgede belirtiliyor. Sunucu tarafı CAPTCHA ve domain restriction ayarları, Formspree hesabına erişim olmadığından doğrulanamadı.
+- Gizlilik/çerez sayfaları Türkçe ve İngilizce yayımlanmış dosyalarda var, formdan erişilebilir.
 
-## Gelecekte değişiklik öncesinde zorunlu kontrol
-1. Analitik, reklam, izleme, piksel veya zorunlu olmayan çerez eklenmeden **önce** KVKK, gerekiyorsa GDPR/ePrivacy koşulları, açık rıza yöntemi ve aydınlatma metni gözden geçirilmeli.
-2. Form **gönderime açılmadan önce** veri sorumluluğu, veri saklama, aydınlatma, bot/spam koruması, sunucu tarafı doğrulama ve oran sınırlaması sağlanmalı.
-3. Üçüncü taraf font, video, harita, CDN, yorum veya gömme kod eklenmeden IP adresi/dış aktarım etkisi incelenmeli.
-4. Siteye gizli anahtar, şifre, erişim belirteci, servis hesabı anahtarı veya kullanıcı bilgisi GitHub deposuna yazılmamalı.
-5. HTML içinde yer alan JSON-LD değişirse CSP içindeki ilgili SHA-256 hash değeri de yeniden hesaplanmalı.
-6. GitHub hesabında iki faktörlü doğrulama açık tutulmalı; erişim yetkileri ve başarısız Pages yayınları takip edilmeli.
-7. Mobil oyunlar için ayrı gizlilik ve çocuk verisi değerlendirmesi yapılmalı; bu sitenin politikası oyunun politikası yerine geçmez.
+## Açık noktalar / kesin uyum engelleri
+1. **KVKK m.9 yurt dışına aktarım:** Formspree'nin verileri ABD'de işlediği doğrulandı. Kullanıcıya bilgi verilmiş olsa da aktarımın hukuki mekanizması, uygun güvenceler ve varsa sözleşme/bildirim yükümlülükleri doğrulanmadı. Formspree'nin AB/GDPR SCC beyanı Türkiye'nin KVKK m.9 yükümlülüklerini kendiliğinden karşılamaz. Bu konu incelenmeden siteye 'KVKK'ya tamamen uyumlu' denemez. En düşük hukuki risk için doğrulanana kadar form gönderimini durdurmak düşünülebilir.
+2. **Formspree proje ayarları:** Formspree Settings > Spam protection içinde reCAPTCHA etkin mi, Project Settings > Restrict to Domain alanına must7y.github.io girilmiş mi kontrol edilmeli. Kontrol yapılana kadar bot korumasının tam olduğu iddia edilmemeli.
+3. **Uçtan uca test:** Formu bir kullanıcının bilinçli test mesajıyla denemesi, teslimatın Gmail'e ulaşması, spam engeli, boş alan/doğrulama ve mobil tarayıcı testi gerekir. Bu kontrol yapılmadı.
+4. **Gizlilik metni değerlendirmesi:** KVKK m.10 kapsamında işlemeye esas hukuki dayanak, sorumlu iletişim kanalı, saklama süresi, veri işleyen sözleşmeleri ve yurt dışına aktarımın hukuki dayanağı somut olarak netleştirilmeli. Güncel sayfalar bilgilendirme sağlar ancak hukuki incelemenin yerini tutmaz.
+5. **Altyapı güvenliği:** GitHub hesabının iki faktörlü doğrulama ve yetkileri, Pages dağıtım/HTTPS durumu, sunucu HTTP güvenlik başlıkları canlı veya panel erişimi olmadan doğrulanmadı.
+6. **Kapsam:** Bu denetim Pi-Mo veya BUMBALO mobil uygulamalarının çocuk verileri ve reklam politikalarını kapsamaz.
 
-## Açık hukuki/teknik sınırlar
-- GitHub Pages ziyaretçi IP adreslerini güvenlik amacıyla kaydedebilir. Gelecekte kullanılacak iletişim sağlayıcısının verileri nerede işlediği ve KVKK m.9 yurt dışına aktarım şartları ayrıca incelenmelidir. Form kapalıyken siteden mesaj alınmamaktadır.
-- GitHub Pages üzerinde WAF kuralları, özel HTTP yanıt başlıkları, gerçek sunucu tarafı rate limiting veya otomatik kötü niyetli bot engelleme ayarları buradan yapılandırılamaz. İhtiyaç oluşursa destekleyen bir barındırma/ara katman değerlendirilmelidir.
-- Yazılı bilgilendirme veya CSP eklemek tek başına mevzuata tam uyum ya da saldırılara karşı tam koruma garantisi değildir.
+## Gelecek değişiklik protokolü
+- İzleme, reklam, analitik, üçüncü taraf gömme, çerez eklenmeden önce KVKK ve gerekli hallerde GDPR/ePrivacy etkisi değerlendirilir. Zorunlu olmayan çerezler için gerekli koşullarda önceden tercih/rıza mekanizması kurulur.
+- Yeni form alanları ihtiyaç kadarla sınırlandırılır; hassas kişisel veri istenmez. Üçüncü taraf servis ve alıcı bilgilerinin güncellenmesi gözden geçirilir.
+- GitHub deposuna API anahtarı, hesap şifresi veya gizli bilgi yazılmaz; kaydedilmiş bir form URL'si tek başına gizli anahtar değildir.
+- Bot koruması için kullanıcı doğrulamasını sadece tarayıcıya bırakma; servis filtrelerini, limitleri ve domain kısıtlamasını kullan.
 
-Resmî bilgi: https://www.kvkk.gov.tr/Icerik/2033/Aydinlatma-Yukumlulugu- ; https://www.kvkk.gov.tr/Icerik/7353/Cerez-Uygulamalari-Hakkinda-Rehber ; https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages
-
-## İletişim formunu açmadan önce (bekleyen işlemler)
-1. Formspree hesabında **bireysel bir form oluşturulmalı**; bildirim alıcısı ayrı yönetim panelinde tanımlanmalı, alıcı adresi GitHub koduna yazılmamalıdır.
-2. Formun gerçek `https://formspree.io/f/...` adresi kullanıcı tarafından sağlandığında yalnız bu form adresi `action` olarak kullanılmalıdır. Uydurma form ID ile gönderim açılmamalıdır.
-3. Form hizmetinde sunucu tarafı spam koruması, yeniden CAPTCHA değerlendirmesi, `_gotcha` honeypot, alan adı kısıtlaması ve gönderim limiti ayarlanmalı; sadece istemci tarafında bot doğrulaması yeterli değildir.
-4. Gerçek servis için `Content-Security-Policy` içindeki `form-action 'none'` yalnız onaylı form alan adına dar kapsamlı değiştirilmelidir. Servis harici kaynaklar gerektiriyorsa gerekçeyle ayrı incelenmelidir.
-5. Form hizmetinin gizlilik koşulları ve kişisel verileri yurt dışında işlemesi (KVKK m.9) değerlendirilerek Türkçe ve İngilizce aydınlatma metinleri gönderim açılmadan önce doğru bilgilerle güncellenmelidir.
-6. Gönderimin hedef adrese ulaştığı, zorunlu alan kontrolleri, kötü niyetli gönderim filtreleri, erişilebilirlik ve mobil görünüm test edilmelidir.
-7. Form açıldığında görüntülenen `Hazırlanıyor/Coming soon` metinleri kaldırılmalı; gönderim yalnız testten sonra etkinleştirilmelidir.
-8. KVKK başvuru kanalı ve veri sorumlusu iletişim bilgilerinin bulunabilirliği ayrıca değerlendirilmelidir; yalnızca pasif form bunu sağlamaz.
-
-Formspree dokümanları: https://help.formspree.io/articles/troubleshooting/how-to-prevent-spam/ ; https://formspree.io/library/contact/simple-contact-form/ ; KVKK: https://www.kvkk.gov.tr/Icerik/2033/Aydinlatma-Yukumlulugu-
+## Kaynaklar
+- KVKK aydınlatma yükümlülüğü: https://www.kvkk.gov.tr/Icerik/2033/Aydinlatma-Yukumlulugu-
+- KVKK yurt dışına aktarım: https://www.kvkk.gov.tr/Icerik/2053/Yurtdisina-Aktarim
+- KVKK çerez rehberi: https://www.kvkk.gov.tr/Icerik/7353/Cerez-Uygulamalari-Hakkinda-Rehber
+- Formspree güvenlik: https://formspree.io/security/
+- Formspree domain restriction: https://help.formspree.io/articles/form-and-project-settings/restrict-to-domain/
+- Formspree honeypot: https://help.formspree.io/articles/building-your-form/honeypot-spam-filtering/
