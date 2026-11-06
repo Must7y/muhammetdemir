@@ -127,3 +127,6 @@ header.mast.mast-right .langs{flex:none}
 #page-bottom{scroll-margin-top:0}
 @media(max-width:620px){.end-jump{right:14px;bottom:calc(15px + env(safe-area-inset-bottom,0px));padding:6px;border-radius:50%}.end-jump-label{display:none}.end-jump-arrow{width:37px;height:37px}}
 @media(prefers-reduced-motion:reduce){.end-jump{transition:none}.end-jump:hover{transform:none}}
+
+/* Remove unused number-column indentation from the unnumbered venture list. */
+.venture-topics>div{grid-template-columns:minmax(0,1fr);gap:0}
