@@ -61,3 +61,5 @@
 
 
 - **Formspree Restrict to Domain:** Kullanıcı 6 Kasım 2026 tarihinde proje alan adı kısıtlamasını kaydettiğini bildirdi. Hedef: `must7y.github.io`. Yönetim paneli üzerinden bağımsız yeniden okuma yapılmadı. Formun gerçek gönderim testi henüz bekliyor.
+
+- **Gerçek teslim testi (6 Kasım 2026):** Kullanıcı siteden gönderdiği test mesajının hedef e-posta kutusuna ulaştığını doğruladı. Bu, ileti teslimatının çalıştığını gösterir; KVKK aktarım mekanizmasının veya her tarayıcıda erişimin hukuken/teknik olarak bütünüyle doğrulandığı anlamına gelmez.
