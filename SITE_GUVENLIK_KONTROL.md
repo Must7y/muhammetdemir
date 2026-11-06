@@ -14,6 +14,14 @@
 - Türkçe ve İngilizce gizlilik sayfaları Formspree, GitHub Pages, veri türleri, kullanım amaçları ve yurt dışına aktarımı açıklıyor. Bu açıklamalar tek başına hukuka uygun aktarım mekanizması oluşturmaz.
 - Sağ taraftaki en alta inme oku ve numarasız bölüm tasarımı korunuyor.
 
+## Formspree güvenlik ayarları — kullanıcı ekranında doğrulananlar (6 Kasım 2026)
+- Formshield anahtarı: AÇIK (görselde seçili).
+- CAPTCHA status: ENABLED; CAPTCHA solution: Google reCAPTCHA; "CAPTCHA settings saved" bildirimi göründü.
+- Formspree'nin varsayılan reCAPTCHA doğrulaması, gönderimin ardından Formspree sayfasında görüntülenebilir; GitHub Pages HTML sayfasına ayrıca reCAPTCHA JS eklenmedi.
+- Google reCAPTCHA kullanımının veri işleme/çerez etkisi Türkçe ve İngilizce gizlilik metinlerine eklendi.
+- Project Settings > Restrict to Domain: henüz doğrulanmadı. Kullanılacak değer: `must7y.github.io` (protokol ve yol olmadan).
+- Gelen kutusu / gerçek form teslim testi: doğrulanmadı.
+
 ## Sağlayıcı incelemesi (resmî belgeler)
 - **Formspree Inc.** ABD'de AWS altyapısı, TLS 1.2+, AES-256 disk şifrelemesi ve WAF kullandığını beyan eder. SOC 2 Type II raporu talep üzerine sunulabilir; bu kontrolde raporun aslı doğrulanmadı.
 - İsim/e-posta/mesaj dışında IP, tarayıcı, erişim zamanı ve referer bilgisi işlenebilir. Formspree, kendi gizlilik politikasında üçüncü taraf hizmet sağlayıcılar ve bazı diğer veri kullanımlarını açıklar.
