@@ -1,1 +1,1 @@
-(()=>{"use strict";const email=String.fromCharCode(90,101,107,114,97,99,111,114,101,64,103,109,97,105,108,46,99,111,109);document.querySelectorAll("[data-contact-email]").forEach(a=>{a.textContent=email;a.setAttribute("href","mailto:"+email);a.setAttribute("rel","nofollow");});})();
+/* Intentionally unused. No email address, cookies, storage, tracking or form endpoint in this script. */
