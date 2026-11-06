@@ -119,20 +119,34 @@ header.mast.mast-right .langs{flex:none}
 @media(max-width:820px){.contact{gap:28px}.contact-form-panel{padding:22px}}
 @media(prefers-reduced-motion:reduce){.contact-form-panel{transition:none}}
 
-/* Aircraft scroll control: inline SVG, no extra requests, accessible reduced-motion fallback. */
-.end-jump{position:fixed;right:max(16px,calc((100vw - 1240px)/2));bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:30;display:inline-flex;align-items:center;gap:11px;padding:7px 7px 7px 17px;border:1px solid rgba(144,226,219,.34);border-radius:100px;background:rgba(13,32,49,.91);color:#eaf7f7;box-shadow:0 9px 30px rgba(0,0,0,.28);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font:600 12px/1.2 system-ui,Arial,sans-serif;transition:background .2s,border-color .2s,transform .2s}
-.end-jump:hover{background:rgba(24,68,78,.96);border-color:rgba(132,237,225,.72)}
+/* Flight control: forward glide, slight banking and fading contrail. No spin or dive. */
+.end-jump{position:fixed;right:max(16px,calc((100vw - 1240px)/2));bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:30;display:inline-flex;align-items:center;gap:11px;padding:6px 6px 6px 16px;border:1px solid rgba(144,226,219,.34);border-radius:100px;background:rgba(13,32,49,.92);color:#eaf7f7;box-shadow:0 9px 30px rgba(0,0,0,.28);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font:600 12px/1.2 system-ui,Arial,sans-serif;transition:background .24s,border-color .24s,box-shadow .24s}
+.end-jump:hover{background:rgba(24,68,78,.97);border-color:rgba(132,237,225,.7);box-shadow:0 10px 34px rgba(0,0,0,.29),0 0 0 3px rgba(100,196,189,.06)}
 .end-jump:focus-visible{outline:3px solid #a4f3e7;outline-offset:4px}
-.end-jump-aircraft{position:relative;isolation:isolate;display:grid;place-items:center;width:40px;height:40px;flex:none;border-radius:50%;color:#07303c;background:linear-gradient(145deg,#a6eee8,#58beb7);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 3px 10px rgba(36,198,187,.14);transform-origin:50% 50%;will-change:transform}
-.end-jump-aircraft svg{display:block;pointer-events:none}
-.end-jump-plane:hover .end-jump-aircraft,.end-jump-plane:focus-visible .end-jump-aircraft{animation:plane-hover 1.45s ease-in-out infinite}
-.end-jump-plane.is-flying .end-jump-aircraft{animation:plane-descend .86s cubic-bezier(.32,.09,.23,1) both!important}
+.end-jump-aircraft{position:relative;isolation:isolate;display:grid;place-items:center;width:42px;height:42px;flex:none;border-radius:50%;color:#07303c;background:linear-gradient(145deg,#b1f5eb,#60bfb8);box-shadow:inset 0 1px 0 rgba(255,255,255,.46),0 4px 14px rgba(36,198,187,.16)}
+.end-jump-flight{position:relative;display:grid;place-items:center;width:34px;height:34px;transform:translate3d(0,0,0) rotate(-3deg);transform-origin:center;will-change:transform,opacity;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+.end-jump-flight svg{display:block;pointer-events:none;filter:drop-shadow(0 1px 0 rgba(255,255,255,.12))}
+.end-jump-flight::before{content:"";pointer-events:none;position:absolute;right:calc(100% - 4px);top:50%;width:34px;height:2px;border-radius:2px;background:repeating-linear-gradient(90deg,rgba(170,244,232,.8) 0 7px,transparent 7px 11px);opacity:0;transform:scaleX(.25);transform-origin:right center}
+.end-jump-plane:hover .end-jump-flight,.end-jump-plane:focus-visible .end-jump-flight{transform:translate3d(3px,-3px,0) rotate(-5deg)}
+.end-jump-plane.is-flying .end-jump-flight{animation:aircraft-glide .91s cubic-bezier(.25,.58,.24,.95) both!important}
+.end-jump-plane.is-flying .end-jump-flight::before{animation:aircraft-trail .91s ease-out both}
 .end-jump-plane.is-flying{pointer-events:none}
 #page-bottom{scroll-margin-top:0}
-@keyframes plane-hover{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-4px) rotate(7deg)}}
-@keyframes plane-descend{0%{transform:translateY(-3px) rotate(-10deg);opacity:1}26%{transform:translateY(-10px) rotate(20deg);opacity:1}58%{transform:translate(2px,12px) rotate(145deg);opacity:1}100%{transform:translate(4px,57px) rotate(181deg);opacity:0}}
+@keyframes aircraft-glide{
+  0%{transform:translate3d(0,0,0) rotate(-3deg) scale(1);opacity:1}
+  19%{transform:translate3d(7px,-4px,0) rotate(-5deg) scale(1.04);opacity:1}
+  50%{transform:translate3d(34px,0,0) rotate(-1deg) scale(1.02);opacity:1}
+  80%{transform:translate3d(65px,13px,0) rotate(4deg) scale(.98);opacity:.93}
+  100%{transform:translate3d(98px,25px,0) rotate(6deg) scale(.92);opacity:0}
+}
+@keyframes aircraft-trail{
+  0%,12%{opacity:0;transform:scaleX(.2)}
+  32%{opacity:.88;transform:scaleX(.74)}
+  62%{opacity:.72;transform:scaleX(1)}
+  100%{opacity:0;transform:scaleX(1.1)}
+}
 @media(max-width:620px){.end-jump{right:14px;bottom:calc(15px + env(safe-area-inset-bottom,0px));padding:5px;border-radius:50%}.end-jump-label{display:none}.end-jump-aircraft{width:42px;height:42px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.end-jump,.end-jump-aircraft{transition:none!important;animation:none!important}.end-jump-plane:hover .end-jump-aircraft,.end-jump-plane:focus-visible .end-jump-aircraft,.end-jump-plane.is-flying .end-jump-aircraft{animation:none!important;transform:none!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.end-jump,.end-jump-flight,.end-jump-flight::before{transition:none!important;animation:none!important}.end-jump-plane:hover .end-jump-flight,.end-jump-plane:focus-visible .end-jump-flight,.end-jump-plane.is-flying .end-jump-flight{animation:none!important;transform:none!important}}
 
 /* Remove unused number-column indentation from the unnumbered venture list. */
 .venture-topics>div{grid-template-columns:minmax(0,1fr);gap:0}
